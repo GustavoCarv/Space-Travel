@@ -1,16 +1,54 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
+/* 
+------------RESET----------------  
+*/
+*,
+*::after,
+*::before {
   box-sizing: border-box;
+} 
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure, 
+picture {
+  margin: 0;
+}
+
+[disabled] {
+  cursor: not-allowed;
+}
+
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* make images easier to work with */
+img, picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* make forms easier to work with  */
+/* obs: elas não herdem normalmente a fonte */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
