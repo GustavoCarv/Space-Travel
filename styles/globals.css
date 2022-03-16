@@ -1,5 +1,14 @@
 /* 
-------------RESET----------------  
+-------------Custom Properties-------------
+*/
+:root { 
+  --clr-blue-dark: 11,13,23;
+  --clr-blue-light: 208,214,249;
+  --clr-white: 255,255,255;
+}
+
+/* 
+------------Reset----------------  
 */
 *,
 *::after,
@@ -52,3 +61,55 @@ input, button, textarea, select {
     scroll-behavior: auto !important;
   }
 }
+
+/* 
+------------Utility Classes----------------
+*/
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}	 
+
+.grid-center {
+  place-items: center;
+}
+
+.container {
+  padding-inline: 2rem;
+  margin-inline: auto;
+  max-width: var(--max-width, 80rem);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* Colors */
+
+.bg-blue-dark{ 
+  background-color: rgb(var(--clr-blue-dark));
+}
+.bg-blue-light{ 
+  background-color: rgb(var(--clr-blue-light));
+}
+.bg-white{ 
+  background-color: rgb(var(--clr-white));
+}
+
+.text-blue-dark { color: rgb( var(--clr-dark) );}
+.text-blue-light { color: rgb( var(--clr-light) );}
+.text-white { color: rgb( var(--clr-white) );}
