@@ -118,13 +118,15 @@ const DesignSystem: NextPage = () => {
                 Subheading 2 - Barlow Condensed Regular - 14px - 2.35 Character
                 Space
               </p>
-              <p>Avg. Distance</p>
+              <p className="ff-sans-cond fs-200 letter-spacing-3">
+                Avg. Distance
+              </p>
             </div>
             <div>
               <p>
                 Nav Text - Barlow Condensed Regular - 16px - 2.7 Character Space
               </p>
-              <p>Europa</p>
+              <p className="ff-sans-cond fs-300 letter-spacing-2">Europa</p>
             </div>
             <div>
               <p>Body Text</p>
@@ -153,18 +155,42 @@ const DesignSystem: NextPage = () => {
           <span>03</span> Interactive elements
         </h2>
 
-        <div></div>
+        <div>
+          <nav>
+            <ul className="primary-navigation underline-indicators flex">
+              <li className="active">
+                <a className="uppercase text-white letter-spacing-2" href="#">
+                  <span>01</span>Active
+                </a>{" "}
+              </li>
+              <li>
+                <a className="uppercase text-white letter-spacing-2" href="#">
+                  <span>02</span>Hovered
+                </a>{" "}
+              </li>
+              <li>
+                <a className="uppercase text-white letter-spacing-2" href="#">
+                  <span>03</span>Idle
+                </a>{" "}
+              </li>
+            </ul>
+          </nav>
+        </div>
 
-        <div className="flex">
+        <div className="flex" style={styles.marginBlock}>
           <div>
             <Link href="/">
-            <a className="large-button uppercase ff-serif text-blue-dark bg-white fs-600 grid grid-center">
-              Explore
-            </a>
+              <a className="large-button uppercase ff-serif text-blue-dark bg-white fs-600 grid grid-center">
+                Explore
+              </a>
             </Link>
           </div>
 
-          <div></div>
+          <div className=" tab-list underline-indicators flex">
+            <button aria-selected="true" className="small-button uppercase bg-blue-dark ff-serif text-blue-light letter-spacing-2 fs-400">Moon</button>
+            <button aria-selected="false" className="small-button uppercase bg-blue-dark ff-serif text-blue-light letter-spacing-2 fs-400">Mars</button>
+            <button aria-selected="false" className="small-button uppercase bg-blue-dark ff-serif text-blue-light letter-spacing-2 fs-400">Europa</button>
+          </div>
         </div>
       </section>
     </div>
