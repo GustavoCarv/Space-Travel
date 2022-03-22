@@ -10,6 +10,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
           rel="stylesheet"
         />
+          <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"></link>
       </Head>
       <body>
         <Main />

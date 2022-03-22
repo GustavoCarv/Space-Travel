@@ -185,11 +185,51 @@ const DesignSystem: NextPage = () => {
               </a>
             </Link>
           </div>
+          <div className="indicators-container flex">
+            <div className=" tab-list underline-indicators flex">
+              <button
+                aria-selected="true"
+                className="small-button uppercase bg-blue-dark ff-serif text-blue-light letter-spacing-2 fs-400"
+              >
+                Moon
+              </button>
+              <button
+                aria-selected="false"
+                className="small-button uppercase bg-blue-dark ff-serif text-blue-light letter-spacing-2 fs-400"
+              >
+                Mars
+              </button>
+              <button
+                aria-selected="false"
+                className="small-button uppercase bg-blue-dark ff-serif text-blue-light letter-spacing-2 fs-400"
+              >
+                Europa
+              </button>
+            </div>
 
-          <div className=" tab-list underline-indicators flex">
-            <button aria-selected="true" className="small-button uppercase bg-blue-dark ff-serif text-blue-light letter-spacing-2 fs-400">Moon</button>
-            <button aria-selected="false" className="small-button uppercase bg-blue-dark ff-serif text-blue-light letter-spacing-2 fs-400">Mars</button>
-            <button aria-selected="false" className="small-button uppercase bg-blue-dark ff-serif text-blue-light letter-spacing-2 fs-400">Europa</button>
+            <div className="dot-indicators flex">
+              <button aria-selected="true">
+                <span className="sr-only">Slide title</span>
+              </button>
+              <button aria-selected="false">
+                <span className="sr-only">Slide title</span>
+              </button>
+              <button aria-selected="false">
+                <span className="sr-only">Slide title</span>
+              </button>
+            </div>
+
+            <div className="number-indicators flex">
+              <button className="fs-600" aria-selected="true">
+                <span>1</span>
+              </button>
+              <button className="fs-600" aria-selected="false">
+                <span>2</span>
+              </button>
+              <button className="fs-600" aria-selected="false">
+                <span>3</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
