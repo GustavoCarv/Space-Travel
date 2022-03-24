@@ -61,6 +61,10 @@ body {
   background-color: rgb(var(--clr-blue-dark));
   line-height: 1.5;
   min-height: 100vh;
+
+  /* * OBS - NÃO FAZ PARTE DO RESET */
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
 
 /* make images easier to work with */
@@ -103,24 +107,49 @@ select {
   align-items: center;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
 .grid {
   display: grid;
   gap: var(--gap, 1rem);
 }
-
 
 .grid-center {
   place-items: center;
 }
 
 .flow > * + * {
-  margin-top: 1rem
+  margin-top: 1rem;
 }
 
 .container {
   padding-inline: 2rem;
   margin-inline: auto;
   max-width: var(--max-width, 80rem);
+}
+
+.grid-container {
+  display: grid;
+}
+
+@media (min-width: 45rem) {
+  .grid-container {
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        2rem,
+        1fr
+      );
+  }
+
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
 }
 
 .sr-only {
@@ -216,11 +245,10 @@ select {
 }
 
 .numbered-title {
- font-family: var(--ff-sans-cond);
- font-size: var(--fs-500);  
- text-transform: uppercase;
- letter-spacing: 4.72px;
- 
+  font-family: var(--ff-sans-cond);
+  font-size: var(--fs-500);
+  text-transform: uppercase;
+  letter-spacing: 4.72px;
 }
 
 .numbered-title span {
@@ -229,12 +257,15 @@ select {
   color: rgb(var(--clr-white), 0.25);
 }
 
-/* ............. Components ............. */
+.reset {
+  all: unset;
+}
 
+/* ............. Components ............. */
 
 .large-button {
   position: relative;
-  display: grid;
+  display: inline-grid;
   z-index: 1;
   place-items: center;
   padding: 0 2em;
@@ -244,12 +275,12 @@ select {
 }
 
 .large-button::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
   width: 100%;
   height: 100%;
-  background: rgb( var(--clr-white) , 0.15);
+  background: rgb(var(--clr-white), 0.15);
   border-radius: 50%;
   opacity: 0;
   transition: opacity 500ms linear, transform 750ms ease-in-out;
@@ -260,7 +291,6 @@ select {
   opacity: 1;
   transform: scale(1.2);
   animation: button-pulse 3s infinite;
-
 }
 
 @keyframes button-pulse {
@@ -274,7 +304,6 @@ select {
     transform: scale(1.2);
   }
 }
-
 
 .primary-navigation {
   --gap: 8rem;
@@ -290,35 +319,35 @@ select {
 
 .primary-navigation a > span {
   font-weight: 700;
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 
 .underline-indicators > * {
   cursor: pointer;
   border: 0;
   padding: var(--underline-padding, 1rem) 0;
-  border-bottom: .2rem solid rgb( var(--clr-white) );
+  border-bottom: 0.2rem solid rgb(var(--clr-white));
 }
 
 .underline-indicators > *:hover,
 .underline-indicators > *:focus {
-    border-color: rgb( var(--clr-white) , .5);
+  border-color: rgb(var(--clr-white), 0.5);
 }
 
 .underline-indicators > .active,
-.underline-indicators > [aria-selected="true"]{
-    border-color: rgb( var(--clr-white) , 1);
+.underline-indicators > [aria-selected="true"] {
+  border-color: rgb(var(--clr-white), 1);
 }
 
-.tab-list { 
+.tab-list {
   --gap: 2rem;
 }
 
-.small-button { 
+.small-button {
   height: fit-content;
 }
 
-.dot-indicators { 
+.dot-indicators {
   height: fit-content;
 }
 
@@ -326,25 +355,25 @@ select {
   cursor: pointer;
   border: 0;
   border-radius: 50%;
-  padding: .5em;
-  background-color: rgb( var(--clr-white) , .25);
+  padding: 0.5em;
+  background-color: rgb(var(--clr-white), 0.25);
 }
 
 .dot-indicators > *:hover,
 .dot-indicators > *:focus {
-  background-color: rgb( var(--clr-white) , .5);
+  background-color: rgb(var(--clr-white), 0.5);
 }
 
 .dot-indicators > [aria-selected="true"] {
-  background-color: rgb( var(--clr-white) , 1); 
+  background-color: rgb(var(--clr-white), 1);
 }
 
-.number-indicators { 
+.number-indicators {
   height: fit-content;
 }
 
-.number-indicators > * { 
-  cursor:pointer;
+.number-indicators > * {
+  cursor: pointer;
   border: 0;
   border-radius: 50%;
   padding: 1em;
@@ -354,9 +383,9 @@ select {
   justify-content: center;
   align-items: center;
 
-  background-color: rgb( var(--clr-blue-dark));
+  background-color: rgb(var(--clr-blue-dark));
   color: rgb(var(--clr-white));
-  border: 1px solid rgb(var(--clr-white), .5);
+  border: 1px solid rgb(var(--clr-white), 0.5);
 }
 
 .number-indicators > *:hover,
@@ -365,8 +394,8 @@ select {
 }
 
 .number-indicators > [aria-selected="true"] {
-  background-color: rgb( var(--clr-white));
-  color: rgb( var(--clr-blue-dark));
+  background-color: rgb(var(--clr-white));
+  color: rgb(var(--clr-blue-dark));
 }
 
 .indicators-container {
