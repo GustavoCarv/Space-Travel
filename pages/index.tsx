@@ -6,7 +6,7 @@ import logo from "../public/assets/shared/logo.svg";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="body-container home">
       <Head>
         <title>Frontend Mentor | Space tourism website</title>
       </Head>
@@ -31,13 +31,13 @@ const Home: NextPage = () => {
           </ul>
         </nav>
       </header>
-      <main className="flex flex-column grid-container">
+      <main className="grid-container--home  grid-container">
         <div>
           <h1>
             <span className="text-blue-light uppercase letter-spacing-1 fs-500 ff-sans-cond">
-              So, you want to travel to <br />
+              So, you want to travel to 
             </span>
-            <span className="uppercase text-white fs-900 ff-serif ">Space</span>{" "}
+            <span className="uppercase text-white fs-900 ff-serif d-block ">Space</span>{" "}
           </h1>
           <p className="fs-400 ff-sans-normal text-blue-light">
             Let’s face it; if you want to go to space, you might as well

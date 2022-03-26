@@ -4,13 +4,13 @@
   --clr-blue-light: 208, 214, 249;
   --clr-white: 255, 255, 255;
 
-  /* Font-sizes */
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
+  /* font-sizes */
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
   --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
 
@@ -20,6 +20,24 @@
   --ff-sans-normal: "Barlow", sans-serif;
 }
 
+@media (min-width: 35em) {
+  :root {
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+    /* font-sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-400: 1.125rem;
+  }
+}
 /* .............  Reset ............. */
 *,
 *::after,
@@ -120,6 +138,10 @@ select {
   place-items: center;
 }
 
+.d-block {
+  display: block;
+}
+
 .flow > * + * {
   margin-top: 1rem;
 }
@@ -130,12 +152,28 @@ select {
   max-width: var(--max-width, 80rem);
 }
 
-.grid-container {
+.body-container {
   display: grid;
+  grid-template-rows: min-content 1fr;
+  min-height: 100vh;
+}
+
+.grid-container {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  
+  padding-inline: 1rem;
+}
+
+.grid-container * {
+  max-width: 50ch;
 }
 
 @media (min-width: 45rem) {
   .grid-container {
+    text-align: left;
     column-gap: var(--container-gap, 2rem);
     grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
         2rem,
@@ -149,6 +187,11 @@ select {
 
   .grid-container > *:last-child {
     grid-column: 3;
+  }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
   }
 }
 
@@ -264,6 +307,7 @@ select {
 /* ............. Components ............. */
 
 .large-button {
+  font-size: 2rem;
   position: relative;
   display: inline-grid;
   z-index: 1;
@@ -403,4 +447,28 @@ select {
   justify-content: space-between;
   align-items: center;
   margin-left: 4em;
+}
+
+/* ----------------------------- */
+/* Page specific background      */
+/* ----------------------------- */
+
+/* home */
+.home {
+  background-image: url(../public/assets/home/background-home-mobile.jpg);
+  background-size: cover;
+  background-position: bottom center;
+}
+
+@media (min-width: 35rem) {
+  .home {
+      background-position: center center;
+      background-image: url(../public/assets/home/background-home-tablet.jpg);
+  }
+}
+
+@media (min-width: 45rem) {
+  .home {
+      background-image: url(../public/assets/home/background-home-desktop.jpg);
+  }
 }
