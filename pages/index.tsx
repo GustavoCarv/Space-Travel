@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import Head from "next/head";
-import Image from "next/image";
-import logo from "../public/assets/shared/logo.svg";
+import Header from "../src/components/Header";
+
 
 const Home: NextPage = () => {
   return (
@@ -10,39 +10,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Frontend Mentor | Space tourism website</title>
       </Head>
-      <header className="flex ">
-        <div>
-          <Image src={logo} alt="logo"></Image>
-        </div>
-        <button
-          className="mobile-nav-toggle"
-          aria-controls="primary-navigation"
-        >
-          <span 
-          className="sr-only"
-          aria-expanded="false"
-          >Menu</span>
-        </button>
-        <nav>
-          <ul
-            id="primary-navigation"
-            className="flex primary-navigation underline-indicators"
-          >
-            <li className="active ff-sans-cond uppercase text-white letter-spacing-2">
-              <span>00 </span> Home
-            </li>
-            <li className="ff-sans-cond uppercase text-white letter-spacing-2">
-              <span>01 </span> Destination
-            </li>
-            <li className="ff-sans-cond uppercase text-white letter-spacing-2">
-              <span>02 </span> Crew
-            </li>
-            <li className="ff-sans-cond uppercase text-white letter-spacing-2">
-              <span>03 </span> Technology
-            </li>
-          </ul>
-        </nav>
-      </header>
+    <Header />
       <main className="grid-container--home  grid-container">
         <div>
           <h1>
