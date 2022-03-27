@@ -14,9 +14,21 @@ const Home: NextPage = () => {
         <div>
           <Image src={logo} alt="logo"></Image>
         </div>
+        <button
+          className="mobile-nav-toggle"
+          aria-controls="primary-navigation"
+        >
+          <span 
+          className="sr-only"
+          aria-expanded="false"
+          >Menu</span>
+        </button>
         <nav>
-          <ul className="flex primary-navigation underline-indicators">
-            <li className="ff-sans-cond uppercase text-white letter-spacing-2">
+          <ul
+            id="primary-navigation"
+            className="flex primary-navigation underline-indicators"
+          >
+            <li className="active ff-sans-cond uppercase text-white letter-spacing-2">
               <span>00 </span> Home
             </li>
             <li className="ff-sans-cond uppercase text-white letter-spacing-2">
@@ -35,9 +47,11 @@ const Home: NextPage = () => {
         <div>
           <h1>
             <span className="text-blue-light uppercase letter-spacing-1 fs-500 ff-sans-cond">
-              So, you want to travel to 
+              So, you want to travel to
             </span>
-            <span className="uppercase text-white fs-900 ff-serif d-block ">Space</span>{" "}
+            <span className="uppercase text-white fs-900 ff-serif d-block ">
+              Space
+            </span>{" "}
           </h1>
           <p className="fs-400 ff-sans-normal text-blue-light">
             Let’s face it; if you want to go to space, you might as well

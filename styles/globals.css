@@ -355,6 +355,33 @@ select {
   list-style: none;
   padding: 0;
   margin: 0;
+  background-color: rgb(var(--clr-blue-dark), 0.95);
+
+}
+
+@supports (backdrop-filter: blur(100px)) {
+  .primary-navigation {
+      background: hsl( var(--clr-white) / 0.01);
+      backdrop-filter: blur(100px);
+  }
+}
+
+@media screen and (max-width: 35rem) {
+  .primary-navigation {
+    --gap: 0.5rem;
+    --underline-padding: 1rem;
+    flex-direction: column;    
+    position: fixed;
+    inset: 0 0 0 30%;
+    z-index: 999;
+    padding-inline: 2rem;
+    padding-top: 6rem;
+   
+  }
+
+  .primary-navigation.underline-indicators > .active {
+    border: 0;
+ }
 }
 
 .primary-navigation a {
@@ -370,17 +397,21 @@ select {
   cursor: pointer;
   border: 0;
   padding: var(--underline-padding, 1rem) 0;
-  border-bottom: 0.2rem solid rgb(var(--clr-white));
+  /* border-bottom: 0.2rem solid rgb(var(--clr-white)); */
 }
 
 .underline-indicators > *:hover,
 .underline-indicators > *:focus {
+  border-bottom: 0.2rem solid;
   border-color: rgb(var(--clr-white), 0.5);
+  
 }
 
 .underline-indicators > .active,
 .underline-indicators > [aria-selected="true"] {
   border-color: rgb(var(--clr-white), 1);
+  border-bottom: 0.2rem solid;
+  
 }
 
 .tab-list {
