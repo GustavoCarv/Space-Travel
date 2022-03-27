@@ -84,7 +84,6 @@ body {
   display: grid;
   grid-template-rows: min-content 1fr;
   overflow-x: hidden;
-
 }
 
 /* make images easier to work with */
@@ -165,7 +164,7 @@ select {
   display: grid;
   place-items: center;
   text-align: center;
-  
+
   padding-inline: 1rem;
 }
 
@@ -351,23 +350,42 @@ select {
   }
 }
 
+.logo {
+  margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+  min-width: 48px;
+}
+
+.primary-header {
+  justify-content: space-between;
+  align-items: center;
+}
+
 .primary-navigation {
-  --gap: 8rem;
+  --gap: clamp(3rem, 8vw, 8rem);
   --underline-padding: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
   background-color: rgb(var(--clr-blue-dark), 0.95);
-
+  padding-inline: 3rem;
 }
 .mobile-nav-toggle {
   display: none;
 }
 
+.primary-navigation li {
+  text-decoration: none;
+}
+
+.primary-navigation li > span {
+  font-weight: 700;
+  margin-right: 0.5em;
+}
+
 @supports (backdrop-filter: blur(100px)) {
   .primary-navigation {
-      background: hsl( var(--clr-white) / 0.01);
-      backdrop-filter: blur(100px);
+    background: rgb(var(--clr-white) , 0.01);
+    backdrop-filter: blur(100px);
   }
 }
 
@@ -375,7 +393,7 @@ select {
   .primary-navigation {
     --gap: 0.5rem;
     --underline-padding: 1rem;
-    flex-direction: column;    
+    flex-direction: column;
     position: fixed;
     inset: 0 0 0 30%;
     z-index: 999;
@@ -386,24 +404,23 @@ select {
     transition: transform 500ms ease-in-out;
   }
 
-
   .primary-navigation.underline-indicators > .active {
     border: 0;
- }
+  }
 
- .mobile-nav-toggle {
-   display: block;
-   position: absolute;
-   right: 1rem;
-   top: 2rem;
-   background: transparent;
-   border: 0;
-   z-index: 1000;
-  
-   background-image: url(../public/assets/shared/icon-hamburger.svg);
-   background-repeat: no-repeat;
-   width: 1.5rem;
-   aspect-ratio: 1;
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 2rem;
+    background: transparent;
+    border: 0;
+    z-index: 1000;
+
+    background-image: url(../public/assets/shared/icon-hamburger.svg);
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    aspect-ratio: 1;
   }
 
   .is--active.primary-navigation {
@@ -415,13 +432,38 @@ select {
   }
 }
 
-.primary-navigation a {
-  text-decoration: none;
+@media screen and (min-width: 35rem) and (max-width: 45rem) {
+  .primary-navigation {
+    --gap: clamp(1.5rem, 5vw, 3.5rem);
+    --underline-padding: 2rem;
+  }
+
+  .primary-navigation li > span {
+    display: none;
+  }
 }
 
-.primary-navigation a > span {
-  font-weight: 700;
-  margin-right: 0.5em;
+@media (min-width: 45em) {
+  .primary-navigation {
+    margin-block: 2rem;
+    position: relative;    
+    white-space: nowrap;
+  }
+
+  .primary-header nav {
+    order: 2;
+  }
+  .primary-header::after {
+    content: '';
+    display: block;
+    position: relative;
+    height: 1px;
+    width: 100%;
+    background: rgb(var(--clr-white) , 0.5);
+    order: 1;
+    /* transform: translateX(5%); */
+    margin-right: -2.5rem;
+}
 }
 
 .underline-indicators > * {
@@ -435,14 +477,12 @@ select {
 .underline-indicators > *:focus {
   border-bottom: 0.2rem solid;
   border-color: rgb(var(--clr-white), 0.5);
-  
 }
 
 .underline-indicators > .active,
 .underline-indicators > [aria-selected="true"] {
   border-color: rgb(var(--clr-white), 1);
   border-bottom: 0.2rem solid;
-  
 }
 
 .tab-list {
@@ -524,13 +564,13 @@ select {
 
 @media (min-width: 35rem) {
   .home {
-      background-position: center center;
-      background-image: url(../public/assets/home/background-home-tablet.jpg);
+    background-position: center center;
+    background-image: url(../public/assets/home/background-home-tablet.jpg);
   }
 }
 
 @media (min-width: 45rem) {
   .home {
-      background-image: url(../public/assets/home/background-home-desktop.jpg);
+    background-image: url(../public/assets/home/background-home-desktop.jpg);
   }
 }
