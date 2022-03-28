@@ -208,6 +208,15 @@ select {
   border: 0;
 }
 
+.skip-to-content:focus {
+  position: relative;
+  width: max-content;
+  height: auto;
+  clip: 0;
+  background: white;
+  color: black;
+}
+
 /* ............. Colors ............. */
 
 .bg-blue-dark {
@@ -384,7 +393,7 @@ select {
 
 @supports (backdrop-filter: blur(100px)) {
   .primary-navigation {
-    background: rgb(var(--clr-white) , 0.01);
+    background: rgb(var(--clr-white), 0.01);
     backdrop-filter: blur(100px);
   }
 }
@@ -446,7 +455,7 @@ select {
 @media (min-width: 45em) {
   .primary-navigation {
     margin-block: 2rem;
-    position: relative;    
+    position: relative;
     white-space: nowrap;
   }
 
@@ -454,16 +463,16 @@ select {
     order: 2;
   }
   .primary-header::after {
-    content: '';
+    content: "";
     display: block;
     position: relative;
     height: 1px;
     width: 100%;
-    background: rgb(var(--clr-white) , 0.5);
+    background: rgb(var(--clr-white), 0.5);
     order: 1;
     /* transform: translateX(5%); */
     margin-right: -2.5rem;
-}
+  }
 }
 
 .underline-indicators > * {

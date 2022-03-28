@@ -2,16 +2,33 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import Head from "next/head";
 import Header from "../src/components/Header";
-
+import data from "../public/data.json";
+import { useState } from "react";
 
 const Home: NextPage = () => {
+  
+  const [activePage, setActivePage] = useState<string>("");
+ 
+  const arrayData = [data]
+
+  const changeActivePage = (page: string): void => {
+    setActivePage(page);
+  } 
+  console.log(arrayData)
+
+
   return (
     <div className="body-container home">
       <Head>
         <title>Frontend Mentor | Space tourism website</title>
       </Head>
-    <Header />
-      <main className="grid-container--home  grid-container">
+      <Link href="#main" >
+        <a className="skip-to-content sr-only" >
+          Skip to content
+        </a>
+      </Link>
+      <Header  changeActivePage={changeActivePage} />
+      <main id="main" className="grid-container--home  grid-container">
         <div>
           <h1>
             <span className="text-blue-light uppercase letter-spacing-1 fs-500 ff-sans-cond">
