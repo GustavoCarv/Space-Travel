@@ -45,10 +45,10 @@ const Header = (props:Props) => {
           <li className="ff-sans-cond uppercase text-white letter-spacing-2" onClick={() => {props.changeActivePage("destinations")}}>
             <span aria-hidden="true">01 </span> Destination
           </li>
-          <li className="ff-sans-cond uppercase text-white letter-spacing-2">
+          <li className="ff-sans-cond uppercase text-white letter-spacing-2" onClick={() => {props.changeActivePage("crew")}}>
             <span aria-hidden="true">02 </span> Crew
           </li>
-          <li className="ff-sans-cond uppercase text-white letter-spacing-2">
+          <li className="ff-sans-cond uppercase text-white letter-spacing-2" onClick={() => {props.changeActivePage("technology")}}>
             <span aria-hidden="true">03 </span> Technology
           </li>
         </ul>

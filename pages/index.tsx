@@ -6,28 +6,32 @@ import data from "../public/data.json";
 import { useState } from "react";
 
 const Home: NextPage = () => {
-  
   const [activePage, setActivePage] = useState<string>("");
- 
-  const arrayData = [data]
+  const [pageContent, setPageContent] = useState({});
 
-  const changeActivePage = (page: string): void => {
-    setActivePage(page);
-  } 
-  console.log(arrayData)
-
+  const changeActivePage = (page: string) => {
+    switch (page) {
+      case "destinations":
+        setPageContent(data.destinations);
+        break;
+      case "crew":
+        setPageContent(data.crew);
+        break;
+      case "technology":
+        setPageContent(data.technology);
+        break;
+    }
+  };
 
   return (
     <div className="body-container home">
       <Head>
         <title>Frontend Mentor | Space tourism website</title>
       </Head>
-      <Link href="#main" >
-        <a className="skip-to-content sr-only" >
-          Skip to content
-        </a>
+      <Link href="#main">
+        <a className="skip-to-content sr-only">Skip to content</a>
       </Link>
-      <Header  changeActivePage={changeActivePage} />
+      <Header changeActivePage={changeActivePage} />
       <main id="main" className="grid-container--home  grid-container">
         <div>
           <h1>
