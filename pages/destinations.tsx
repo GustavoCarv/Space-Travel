@@ -16,13 +16,13 @@ function Destinations(): JSX.Element {
 
   const [mainSrc, setMainSrc] = useState<StaticImageData>(moonPic);
   const [info, setInfo] = useState("Moon");
-  const variavel = console.log(variavel);
+
 
   const mainContent = pageInfo.map((item, index) => {
     if (item.name === info) {
       return (
         <article key={index} className="destination-info">
-          <h2 className="uppercase fs-800 ff-serif text-white d-block">Moon</h2>
+          <h2 className="uppercase fs-800 ff-serif text-white d-block">{item.name}</h2>
           <p className="fs-400 ff-sans-normal text-blue-light">
               {item.description}
           </p>
@@ -63,6 +63,15 @@ function Destinations(): JSX.Element {
     setMainSrc(_src);
   };
 
+  const handleActiveContent = (_planet: string) => {
+    setInfo(_planet);
+  } 
+
+  const handleImageAndContent = (_src: StaticImageData, _planet: string ) => {
+    handleActivePicture(_src)
+    handleActiveContent(_planet)
+  }
+
   return (
     <div className="body-container destination">
       <Head>
@@ -73,7 +82,7 @@ function Destinations(): JSX.Element {
       </Link>
       <Header changeActivePage={changeActivePage} />
       <main id="main" className="grid-container   grid-container--destination">
-        <div>
+        <div> 
           <h1 className="numbered-title">
             <span aria-hidden="true">01</span> Pick your destination
           </h1>
@@ -84,28 +93,28 @@ function Destinations(): JSX.Element {
         <div>
           <div className=" tab-list underline-indicators flex">
             <button
-              onClick={() => handleActivePicture(moonPic)}
+              onClick={() => handleImageAndContent(moonPic, "Moon")}
               aria-selected="true"
               className="small-button uppercase bg-blue-dark ff-serif text-blue-light letter-spacing-2 fs-300"
             >
               Moon
             </button>
             <button
-              onClick={() => handleActivePicture(marsPic)}
+              onClick={() => handleImageAndContent(marsPic, "Mars")}
               aria-selected="false"
               className="small-button uppercase bg-blue-dark ff-serif text-blue-light letter-spacing-2 fs-300"
             >
               Mars
             </button>
             <button
-              onClick={() => handleActivePicture(europaPic)}
+              onClick={() => handleImageAndContent(europaPic, "Europa")}
               aria-selected="false"
               className="small-button uppercase bg-blue-dark ff-serif text-blue-light letter-spacing-2 fs-300"
             >
               Europa
             </button>
             <button
-              onClick={() => handleActivePicture(titanPic)}
+              onClick={() => handleImageAndContent(titanPic, "Titan")}
               aria-selected="false"
               className="small-button uppercase bg-blue-dark ff-serif text-blue-light letter-spacing-2 fs-300"
             >
