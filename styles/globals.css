@@ -636,7 +636,7 @@ select {
   padding-top: 2.5rem;
   margin-top: 2.5rem;
 }
-.destination-meta > * > *{
+.destination-meta > * > * {
   max-width: none;
 }
 
@@ -669,20 +669,16 @@ select {
       ". image tabs ."
       ". image content .";
   }
-  .grid-container--destination .tab-list{
+  .grid-container--destination .tab-list {
     justify-content: flex-start;
   }
-
-
 }
 .image-container-mobile {
   grid-area: image;
-
 }
 
 @media (max-width: 45rem) {
   .image-container-mobile {
-    
     width: 60%;
     margin: 1rem auto 0;
   }
@@ -691,20 +687,96 @@ select {
 @media (min-width: 35em) {
   .destination-meta {
     flex-direction: row;
-    justify-content: space-evenly;  
+    justify-content: space-evenly;
   }
   .numbered-title {
     white-space: nowrap;
   }
 }
 @media (min-width: 45rem) {
-  .destination-meta{ 
+  .destination-meta {
     justify-content: flex-start;
-    --gap: min(5vw,7rem);
+    --gap: min(5vw, 7rem);
   }
   .numbered-title {
-    transform: translateX(-20%);    
-    margin-bottom: 5rem
+    transform: translateX(-20%);
+    margin-bottom: 5rem;
   }
 }
-  
+
+/* Crew Layout */
+
+.grid-container--crew {
+  grid-template-areas:
+    "title"
+    "image"
+    "tabs"
+    "content";
+}
+
+.grid-container--crew .numbered-title {
+  transform: unset;
+  grid-area: title;
+}
+
+.crew-info {
+  grid-area: content;
+}
+
+.grid-container--crew > * + * {
+  margin-top: 2rem;
+}
+
+.grid-container--crew .image-container-mobile {
+  grid-area: image;
+  width: 80%;
+  border-bottom: 1px solid rgb(var(--clr-white), 0.1);
+}
+
+.grid-container--crew .dot-indicators {
+  grid-area: tabs;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.grid-container--crew .crew-info {
+  grid-area: content;
+}
+
+@media screen and (min-width: 35rem) {
+  .grid-container--crew {
+    grid-template-areas:
+      "title"
+      "content"
+      "tabs"
+      "image";
+    padding-bottom: 0;
+  }
+  .grid-container--crew .image-container-mobile {
+    width: 70%;
+    
+  }
+}
+
+@media screen and (min-width: 45rem) {
+  .grid-container--crew {
+    grid-template-areas:
+      ". title title ."
+      " . content image . "
+      " . tabs image . ";
+    padding-bottom: 0;
+  }
+
+  .grid-container--crew .image-container-mobile {
+    width: clamp(60%, 25vw, 90%);
+    align-self: end;
+
+  }
+  .grid-container--crew .dot-indicators {
+    justify-self: start;
+
+  }
+  .grid-container--crew .crew-info { 
+    justify-self: start;
+  }
+}

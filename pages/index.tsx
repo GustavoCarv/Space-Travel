@@ -6,22 +6,6 @@ import data from "../public/data.json";
 import { useState } from "react";
 
 const Home: NextPage = () => {
-  const [activePage, setActivePage] = useState<string>("");
-  const [pageContent, setPageContent] = useState({});
-
-  const changeActivePage = (page: string) => {
-    switch (page) {
-      case "destinations":
-        setPageContent(data.destinations);
-        break;
-      case "crew":
-        setPageContent(data.crew);
-        break;
-      case "technology":
-        setPageContent(data.technology);
-        break;
-    }
-  };
 
   return (
     <div className="body-container home">
@@ -31,7 +15,7 @@ const Home: NextPage = () => {
       <Link href="#main">
         <a className="skip-to-content sr-only">Skip to content</a>
       </Link>
-      <Header changeActivePage={changeActivePage} />
+      <Header />
       <main id="main" className="grid-container--home  grid-container">
         <div>
           <h1>

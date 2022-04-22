@@ -11,9 +11,6 @@ import titanPic from "../public/assets/destination/image-titan.png";
 
 function Destinations(): JSX.Element {
   const pageInfo = data.destinations;
-  const [activePage, setActivePage] = useState<string>("");
-  const [pageContent, setPageContent] = useState({});
-
   const [mainSrc, setMainSrc] = useState<StaticImageData>(moonPic);
   const [info, setInfo] = useState("Moon");
 
@@ -45,20 +42,6 @@ function Destinations(): JSX.Element {
     }
   });
 
-  const changeActivePage = (page: string) => {
-    switch (page) {
-      case "destinations":
-        setPageContent(data.destinations);
-        break;
-      case "crew":
-        setPageContent(data.crew);
-        break;
-      case "technology":
-        setPageContent(data.technology);
-        break;
-    }
-  };
-
   const handleActivePicture = (_src: StaticImageData) => {
     setMainSrc(_src);
   };
@@ -80,7 +63,7 @@ function Destinations(): JSX.Element {
       <Link href="#main">
         <a className="skip-to-content sr-only">Skip to content</a>
       </Link>
-      <Header changeActivePage={changeActivePage} />
+      <Header />
       <main id="main" className="grid-container   grid-container--destination">
         <div> 
           <h1 className="numbered-title">

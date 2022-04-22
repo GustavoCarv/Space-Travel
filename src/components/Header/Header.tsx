@@ -3,14 +3,10 @@ import logo from "../../../public/assets/shared/logo.svg";
 import { useState } from "react";
 import Link from "next/link";
 
-type Props = {
-  changeActivePage: (page: string) => void;
-};
-const Header = (props: Props) => {
+const Header = () => {
   const [isActive, setIsActive] = useState(false);
 
   const handleMobileMenu = (): void => {
-    console.log(isActive);
     setIsActive(!isActive);
   };
 
@@ -43,12 +39,7 @@ const Header = (props: Props) => {
             <span aria-hidden="true">00 </span> Home
           </li>
 
-          <li
-            className="ff-sans-cond uppercase text-white letter-spacing-2"
-            onClick={() => {
-              props.changeActivePage("destinations");
-            }}
-          >
+          <li className="ff-sans-cond uppercase text-white letter-spacing-2">
             <Link href="/destinations">
               <a>
                 <span aria-hidden="true">01 </span> Destination
@@ -56,20 +47,14 @@ const Header = (props: Props) => {
             </Link>
           </li>
 
-          <li
-            className="ff-sans-cond uppercase text-white letter-spacing-2"
-            onClick={() => {
-              props.changeActivePage("crew");
-            }}
-          >
-            <span aria-hidden="true">02 </span> Crew
+          <li className="ff-sans-cond uppercase text-white letter-spacing-2">
+            <Link href="/crew">
+              <a>
+                <span aria-hidden="true">02 </span> Crew
+              </a>
+            </Link>
           </li>
-          <li
-            className="ff-sans-cond uppercase text-white letter-spacing-2"
-            onClick={() => {
-              props.changeActivePage("technology");
-            }}
-          >
+          <li className="ff-sans-cond uppercase text-white letter-spacing-2">
             <span aria-hidden="true">03 </span> Technology
           </li>
         </ul>
