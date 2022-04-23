@@ -9,6 +9,7 @@ const Header = () => {
   const handleMobileMenu = (): void => {
     setIsActive(!isActive);
   };
+  
 
   return (
     <header className=" primary-header flex ">
@@ -35,7 +36,7 @@ const Header = () => {
             (isActive ? " is--active" : "")
           }
         >
-          <li className="active ff-sans-cond uppercase text-white letter-spacing-2">
+          <li className={"ff-sans-cond uppercase text-white letter-spacing-2"}>
             <span aria-hidden="true">00 </span> Home
           </li>
 

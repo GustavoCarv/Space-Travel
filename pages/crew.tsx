@@ -11,7 +11,6 @@ import anoushehPic from "../public/assets/crew/image-anousheh-ansari.png";
 
 function Crew(): JSX.Element {
   const pageInfo = data.crew;
-  console.log(pageInfo);
   const [mainSrc, setMainSrc] = useState<StaticImageData>(douglaPic);
   const [info, setInfo] = useState("Douglas Hurley");
 
