@@ -333,6 +333,12 @@ select {
   text-decoration: none;
 }
 
+@media (max-width: 35em) {
+  .large-button {
+    font-size: 1.5rem;
+  }
+}
+
 .large-button::after {
   content: "";
   position: absolute;

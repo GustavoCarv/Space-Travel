@@ -6,7 +6,6 @@ import data from "../public/data.json";
 import { useState } from "react";
 
 const Home: NextPage = () => {
-
   return (
     <div className="body-container home">
       <Head>
