@@ -34,7 +34,7 @@ const Home: NextPage = () => {
           </p>
         </div>
         <button className="reset">
-          <Link href="/design-system">
+          <Link href="/destinations">
             <a className="large-button uppercase ff-serif text-blue-dark bg-white fs-600 grid grid-center">
               Explore
             </a>

@@ -64,7 +64,7 @@ function Destinations(): JSX.Element {
       <Link href="#main">
         <a className="skip-to-content sr-only">Skip to content</a>
       </Link>
-      <Header />
+      <Header active={"Destination"}/>
       <main id="main" className="grid-container   grid-container--destination">
         <div>
           <h1 className="numbered-title">

@@ -311,7 +311,7 @@ select {
 @media (min-width: 35em) {
   .numbered-title {
     justify-self: start;
-    margin-bottom: 1rem;
+    margin-block: 1rem;
   }
 }
 
@@ -548,7 +548,7 @@ select {
   justify-content: center;
   align-items: center;
 
-  background-color: rgb(var(--clr-blue-dark));
+  background-color: transparent;
   color: rgb(var(--clr-white));
   border: 1px solid rgb(var(--clr-white), 0.5);
 }
@@ -631,6 +631,27 @@ select {
 @media (min-width: 45rem) {
   .crew {
     background-image: url(../public/assets/crew/background-crew-desktop.jpg);
+  }
+}
+
+/* tech */
+
+.tech {
+  background-image: url(../public/assets/technology/background-technology-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 35rem) {
+  .tech {
+    background-position: center center;
+    background-image: url(../public/assets/technology/background-technology-tablet.jpg);
+  }
+}
+
+@media (min-width: 45rem) {
+  .tech {
+    background-image: url(../public/assets/technology/background-technology-desktop.jpg);
   }
 }
 
@@ -720,7 +741,7 @@ select {
     justify-content: flex-start;
     --gap: min(5vw, 7rem);
   }
-  .numbered-title {
+  .grid-container--destination .numbered-title {
     transform: translateX(-20%);
     margin-bottom: 5rem;
   }
@@ -738,11 +759,13 @@ select {
     flex-direction: row;
     justify-content: space-evenly;
   }
-  .grid-container--destination > div:first-child {
-    width: 100%;
-  }
   .grid-container--destination .numbered-title {
     text-align: left;
+  }
+}
+@media (min-width: 35rem) and (max-width: 45rem) {
+  .grid-container--destination > div:first-child {
+    width: 100%;
   }
 }
 
@@ -764,10 +787,6 @@ select {
 .grid-container--crew .numbered-title {
   transform: unset;
   grid-area: title;
-}
-
-.crew-info {
-  grid-area: content;
 }
 
 .grid-container--crew > * + * {
@@ -846,4 +865,66 @@ select {
   width: 100%;
   height: 100%;
   margin: 0;
+}
+
+.grid-container--tech .tech-info {
+  grid-area: content;
+  padding-inline: 1rem;
+}
+
+.image-container-desktop {
+  display: none;
+}
+.tech .number-indicators {
+  grid-area: tabs;
+}
+
+@media screen and (min-width: 35rem) {
+  .tech .numbered-title {
+    padding-inline: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .tech .flow > * + * {
+    margin-top: 2rem;
+  }
+  .tech-info.flow > * + * {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 45rem) {
+  .image-container-desktop {
+    display: block;
+    grid-area: image;
+
+    height: 100%;
+    width: 100%;
+    grid-column: span 2;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .tech .image-container-mobile {
+    display: none;
+  }
+  .grid-container--tech {
+    grid-template-columns:
+      minmax(1rem, 1fr) min-content repeat(2, minmax(0, 45rem))
+      minmax(1rem, 1fr);
+    grid-template-areas:
+      ". title title . ."
+      ". tabs content image ."
+      ". tabs content image .";
+  }
+  .grid-container--tech > *:first-child {
+    grid-column: 2/4;
+    margin-bottom: 0;
+  }
+  .grid-container--tech > *:last-child {
+    grid-column: 4/6;
+  }
+  .tech .number-indicators {
+    justify-self: start;
+    flex-direction: column;
+  }
 }

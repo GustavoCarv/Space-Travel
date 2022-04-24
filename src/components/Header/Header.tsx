@@ -3,7 +3,7 @@ import logo from "../../../public/assets/shared/logo.svg";
 import { useState } from "react";
 import Link from "next/link";
 
-const Header = () => {
+const Header = (props: any) => {
   const [isActive, setIsActive] = useState(false);
 
   const handleMobileMenu = (): void => {
@@ -35,32 +35,37 @@ const Header = () => {
             (isActive ? " is--active" : "")
           }
         >
-          <li className={"ff-sans-cond uppercase text-white letter-spacing-2"}>
-            <span aria-hidden="true">00 </span> Home
-          </li>
-
-          <li className="ff-sans-cond uppercase text-white letter-spacing-2">
-            <Link href="/destinations">
-              <a>
+          <Link href="/">
+            <a>
+              <li
+                className={"ff-sans-cond uppercase text-white letter-spacing-2"}
+              >
+                <span aria-hidden="true">00 </span> Home
+              </li>
+            </a>
+          </Link>
+          <Link href="/destinations">
+            <a>
+              <li className="ff-sans-cond uppercase text-white letter-spacing-2">
                 <span aria-hidden="true">01 </span> Destination
-              </a>
-            </Link>
-          </li>
+              </li>
+            </a>
+          </Link>
 
-          <li className="ff-sans-cond uppercase text-white letter-spacing-2">
-            <Link href="/crew">
-              <a>
+          <Link href="/crew">
+            <a>
+              <li className="ff-sans-cond uppercase text-white letter-spacing-2">
                 <span aria-hidden="true">02 </span> Crew
-              </a>
-            </Link>
-          </li>
-          <li className="ff-sans-cond uppercase text-white letter-spacing-2">
-            <Link href="/technology">
-              <a>
+              </li>
+            </a>
+          </Link>
+          <Link href="/technology">
+            <a>
+              <li className="ff-sans-cond uppercase text-white letter-spacing-2">
                 <span aria-hidden="true">03 </span> Technology
-              </a>
-            </Link>
-          </li>
+              </li>
+            </a>
+          </Link>
         </ul>
       </nav>
     </header>
