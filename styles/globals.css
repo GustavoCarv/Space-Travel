@@ -408,7 +408,7 @@ select {
 
 @supports (backdrop-filter: blur(100px)) {
   .primary-navigation {
-    background: rgb(var(--clr-white), 0.01);
+    background: rgb(var(--clr-white), 0.1);
     backdrop-filter: blur(100px);
   }
 }
