@@ -9,7 +9,6 @@ const Header = () => {
   const handleMobileMenu = (): void => {
     setIsActive(!isActive);
   };
-  
 
   return (
     <header className=" primary-header flex ">
@@ -56,7 +55,11 @@ const Header = () => {
             </Link>
           </li>
           <li className="ff-sans-cond uppercase text-white letter-spacing-2">
-            <span aria-hidden="true">03 </span> Technology
+            <Link href="/technology">
+              <a>
+                <span aria-hidden="true">03 </span> Technology
+              </a>
+            </Link>
           </li>
         </ul>
       </nav>
