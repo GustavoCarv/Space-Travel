@@ -17,7 +17,7 @@ function Destinations(): JSX.Element {
   const mainContent = pageInfo.map((item, index) => {
     if (item.name === info) {
       return (
-        <article key={index} className="destination-info">
+        <article key={index} className="destination-info flow">
           <h2 className="uppercase fs-800 ff-serif text-white d-block">
             {item.name}
           </h2>

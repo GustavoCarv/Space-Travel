@@ -17,7 +17,7 @@ function Crew(): JSX.Element {
   const mainContent = pageInfo.map((item, index) => {
     if (item.name === info) {
       return (
-        <article key={index} className="crew-info">
+        <article key={index} className="crew-info flow">
           <h2 className="fs-600 ff-serif uppercase">{item.role}</h2>
           <p className="uppercase fs-700 ff-serif text-white d-block">
             {item.name}
@@ -32,13 +32,13 @@ function Crew(): JSX.Element {
     setMainSrc(_src);
   };
 
-  const handleActiveContent = (_planet: string) => {
-    setInfo(_planet);
+  const handleActiveContent = (_member: string) => {
+    setInfo(_member);
   };
 
-  const handleImageAndContent = (_src: StaticImageData, _planet: string) => {
+  const handleImageAndContent = (_src: StaticImageData, _member: string) => {
     handleActivePicture(_src);
-    handleActiveContent(_planet);
+    handleActiveContent(_member);
   };
 
   return (
@@ -56,21 +56,35 @@ function Crew(): JSX.Element {
         </h1>
         {mainContent}
         <div className="dot-indicators flex">
-          <button aria-selected="true">
+          <button
+            aria-selected={info === "Douglas Hurley"}
+            onClick={() => handleImageAndContent(douglaPic, "Douglas Hurley")}
+          >
             <span className="sr-only">The commander</span>
           </button>
-          <button aria-selected="false">
+          <button
+            aria-selected={info === "Mark Shuttleworth"}
+            onClick={() => handleImageAndContent(markPic, "Mark Shuttleworth")}
+          >
             <span className="sr-only">The mission specialist</span>
           </button>
-          <button aria-selected="false">
+          <button
+            aria-selected={info === "Victor Glover"}
+            onClick={() => handleImageAndContent(victorPic, "Victor Glover")}
+          >
             <span className="sr-only">The pilot</span>
           </button>
-          <button aria-selected="false">
+          <button
+            aria-selected={info === "Anousheh Ansari"}
+            onClick={() =>
+              handleImageAndContent(anoushehPic, "Anousheh Ansari")
+            }
+          >
             <span className="sr-only">The crew enginner</span>
           </button>
         </div>
         <div className="image-container-mobile">
-          <Image src={mainSrc} layout="responsive" priority={true} />
+          <Image src={mainSrc} layout="intrinsic" priority={true} />
         </div>
       </main>
     </div>
